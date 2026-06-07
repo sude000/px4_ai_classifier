@@ -93,3 +93,15 @@ HYBRID_DROPOUT     = 0.5
 # 6. EXPERIMENT TRACKING (WandB)
 # ==========================================
 WANDB_PROJECT = "px4-ai-classifier"
+
+
+# ==========================================
+# 7. INFERENCE CONFIGURATION (Streamlit)
+# ==========================================
+# This section controls which model is used by the Streamlit App (app.py)
+# Options: "cnn", "lstm", "hybrid"
+ACTIVE_MODEL_TYPE = "hybrid"
+
+# Path to the weights of the active model
+# If you just finished training, "final_best_model.pt" is usually the best choice.
+ACTIVE_MODEL_WEIGHTS = "training_results/final_best_model.pt"

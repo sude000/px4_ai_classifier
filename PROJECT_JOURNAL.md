@@ -65,3 +65,21 @@ We will build and compare three distinct approaches:
 
 ### 7. Streamlit Inference UI
 Once the best model is saved as a `.pt` file, we will build a web interface. Users will upload a raw drone CSV, and the app will generate an interactive graph showing exactly when and why the AI thinks the drone failed.
+
+---
+
+## Part 4: Real-Time Inference & Streamlit (The Delivery)
+
+We are now moving from training to deployment. This phase turns the "black box" model into a useful engineering tool.
+
+### 8. The Inference Engine Pillars
+To make predictions on *new* data, the system follows a 4-step pipeline:
+
+1.  **Dynamic Model Loading:** Instead of hardcoding a model, the app reads the architecture and weights dynamically. This allows us to swap a CNN for a Hybrid model without rewriting the UI code.
+2.  **Live Feature Scaling:** Raw sensor data (e.g., 24V battery, 0.001 IMU drift) must be normalized. The app loads the `feature_scaler.pkl` saved during the preprocessing phase to ensure the live data "looks" exactly like the training data.
+3.  **The Rolling Window Predictor:** Since the models are temporal, they require a sequence of data (e.g., the last 50 timesteps) to make one prediction. The inference engine slides a window across the uploaded CSV, generating a "Failure Probability" for every millisecond of the flight.
+4.  **Temporal Highlighting:** The UI doesn't just give a single "Pass/Fail." It maps the AI's predictions back to the flight timeline, highlighting segments of the graph in different colors (Red for Engine, Yellow for Rudder, etc.).
+
+### 9. Engineering Rule: Centralized Model Control
+*   **The Concept:** The Streamlit app should never have hardcoded logic for which model version to use.
+*   **The Rule:** The active model used for inference is controlled via `src/config.py`. By changing a single variable in the config, the user can switch the entire dashboard between "CNN Mode", "LSTM Mode", or "Hybrid Mode". This ensures that the training settings and the UI settings stay perfectly synchronized.
