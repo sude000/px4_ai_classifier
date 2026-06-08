@@ -9,7 +9,7 @@ alfa_dataset/
 alfa_unified_raw/
 data/clean_data/
 data/*_scaled.csv
-data/*.pkl
+
 
 # Notebooks
 .ipynb_checkpoints/
