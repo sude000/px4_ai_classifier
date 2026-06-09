@@ -1,5 +1,12 @@
 # PX4 AI Classifier
 
+<div align="center">
+  <video src="app_vedio.webm" controls="controls" style="max-width: 100%;">
+    Your browser does not support the video tag.
+  </video>
+  <p><em>🎥 Interactive AI Dashboard Demo</em></p>
+</div>
+
 A Deep Learning-based MVP system that automatically detects and classifies mechanical failures by analyzing flight logs from fixed-wing UAVs.
 
 ## Project Architecture
@@ -61,12 +68,6 @@ uv run streamlit run app.py
 2. **AI Inference:** The Hybrid AI model instantly processes the flight using a 0.5s sliding window.
 3. **Prediction Table:** A detailed table lists every time-slice where a failure was detected, providing the exact timestamp, fault type (e.g., Engine, Rudder), and the model's Confidence %.
 4. **Vibration Analysis (FFT):** The "Raw Signal Analysis" section lets you select any sensor group (like IMU or Power) to view its Spectral Analysis (FFT). You can move the Time Range slider to isolate the exact moment of a failure and watch the vibration peaks (Hz) shift in real-time, verifying the AI's diagnosis mathematically.
-
-🎥 **Demo Video:** Check out the interactive dashboard in action below!
-
-<video src="app_vedio.webm" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
 
 ## Final Model Comparison
 After training and rigorous evaluation, the following results were achieved:
