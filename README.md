@@ -1,7 +1,7 @@
 # PX4 AI Classifier
 
 <div align="center">
-  <video src="https://github.com/abdelhadi-osama/px4_ai_classifier/raw/main/app_vedio.webm" controls="controls" style="max-width: 100%;">
+  <video src="https://github.com/abdelhadi-osama/px4_ai_classifier/raw/main/app_vedio" controls="controls" style="max-width: 100%;">
     Your browser does not support the video tag.
   </video>
   <p><em>🎥 Interactive AI Dashboard Demo</em></p>
